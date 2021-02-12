@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#000000"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/frameLayout"
+        android:fitsSystemWindows="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <io.chingari.finalexoplayer.lib.DoubleTapPlayerView
+            android:id="@+id/previewPlayerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:background="@android:color/black"
+            app:controller_layout_id="@layout/exo_playback_control_view_yt"
+            app:dtpv_controller="@id/ytOverlay"
+            app:resize_mode="fill"
+            app:repeat_toggle_modes="all"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <io.chingari.finalexoplayer.lib.youtube.YouTubeOverlay
+            android:id="@+id/ytOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#77000000"
+            android:visibility="invisible"
+            app:yt_seekSeconds="2"
+            app:yt_playerView="@id/previewPlayerView"
+            tools:visibility="visible" />
+
+    </FrameLayout>
+
+    <ProgressBar
+        android:id="@+id/progressVideos"
+        android:visibility="visible"
+        style="?android:attr/progressBarStyleLarge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/white"
+        android:layout_height="wrap_content"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
